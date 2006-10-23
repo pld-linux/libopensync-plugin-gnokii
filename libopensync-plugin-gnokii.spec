@@ -10,7 +10,7 @@ Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	506d16bc42a82751413affe85888b25e
 URL:		http://www.opensync.org/
 BuildRequires:	gnokii >= 0.6.14
-BuildRequires:	libopensync-devel
+BuildRequires:	libopensync-devel >= %{version}
 BuildRequires:	libxml2-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
