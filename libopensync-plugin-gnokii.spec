@@ -5,8 +5,7 @@ Version:	0.19
 Release:	0.1
 License:	LGPL
 Group:		Libraries
-Source0:	%{name}-%{version}.tar.gz
-#Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.gz?format=raw
+Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.gz?format=raw
 # Source0-md5:	506d16bc42a82751413affe85888b25e
 URL:		http://www.opensync.org/
 BuildRequires:	gnokii >= 0.6.14
@@ -15,8 +14,8 @@ BuildRequires:	libxml2-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-OpenSync is a synchronization framework that is platform and distribution
-independent.
+OpenSync is a synchronization framework that is platform and
+distribution independent.
 
 It consists of several plugins that can be used to connect to devices,
 a powerful sync-engine and the framework itself.
@@ -30,8 +29,8 @@ synchronizacji danych.
 Sk³ada siê z ró¿nych wtyczek, których mo¿na u¿ywaæ do ³±czenia z
 urz±dzeniami, potê¿nego silnika synchronizacji oraz samego szkieletu.
 
-Ten pakiet zawiera wtyczkê gnokii (do synchronizacji z teelfonami Nokia)
-dla szkieletu OpenSync.
+Ten pakiet zawiera wtyczkê gnokii (do synchronizacji z teelfonami
+Nokia) dla szkieletu OpenSync.
 
 %prep
 %setup -q
