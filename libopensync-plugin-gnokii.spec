@@ -1,5 +1,5 @@
 Summary:	OpenSync gnokii plugin
-Summary(pl.UTF-8):   Wtyczka gnokii do OpenSync
+Summary(pl.UTF-8):	Wtyczka gnokii do OpenSync
 Name:		libopensync-plugin-gnokii
 Version:	0.19
 Release:	0.1
