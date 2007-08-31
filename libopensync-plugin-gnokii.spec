@@ -1,14 +1,14 @@
 Summary:	OpenSync gnokii plugin
 Summary(pl.UTF-8):	Wtyczka gnokii do OpenSync
 Name:		libopensync-plugin-gnokii
-Version:	0.21
-Release:	1
+Version:	0.22
+Release:	0.1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.bz2?format=raw
-# Source0-md5:	10c0ccd567ebebf9d0a5318d86b0ef62
-Patch0:		%{name}.patch
-URL:		http://www.opensync.org/
+# Source0-md5:	6a5b6c1753508801c4b03333f2a33542
+#Patch0:		%{name}.patch
+U31RL:		http://www.opensync.org/
 BuildRequires:	gnokii >= 0.6.14
 BuildRequires:	libopensync-devel >= %{version}
 BuildRequires:	libxml2-devel
@@ -36,7 +36,7 @@ komórkowymi) dla szkieletu OpenSync.
 
 %prep
 %setup -q
-%patch -p1
+#%patch0 -p1
 
 %build
 %configure
