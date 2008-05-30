@@ -1,16 +1,16 @@
 Summary:	OpenSync gnokii plugin
 Summary(pl.UTF-8):	Wtyczka gnokii do OpenSync
 Name:		libopensync-plugin-gnokii
-Version:	0.22
-Release:	0.1
+Version:	0.36
+Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.bz2?format=raw
-# Source0-md5:	6a5b6c1753508801c4b03333f2a33542
+Source0:	http://www.opensync.org/download/releases/0.36/%{name}-%{version}
+# Source0-md5:	72a9d96cccdc49b23ad371f0c566031d
 URL:		http://www.opensync.org/
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libgnokii-devel >= 0.6.14
-BuildRequires:	libopensync-devel >= %{version}
+BuildRequires:	libopensync-devel >= 1:%{version}
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -39,26 +39,32 @@ komórkowymi) dla szkieletu OpenSync.
 %setup -q
 
 %build
-%configure
+mkdir build
+cd build
+%cmake \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+%if "%{_lib}" != "lib"
+	-DLIB_SUFFIX=64 \
+%endif
+	../
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-rm -f $RPM_BUILD_ROOT%{_libdir}/opensync/{plugins,formats}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/opensync/plugins/gnokii_sync.so
-%attr(755,root,root) %{_libdir}/opensync/formats/gnokii.so
-%{_datadir}/opensync/defaults/gnokii-sync
+%doc AUTHORS ChangeLog README
+%attr(755,root,root) %{_libdir}/opensync-1.0/plugins/gnokii-sync.so
+%attr(755,root,root) %{_libdir}/opensync-1.0/formats/gnokii-*.so
+%{_datadir}/opensync-1.0/defaults/gnokii-sync
 
 # devel
 #%{_includedir}/opensync-1.0/opensync/gnokii_*.h
